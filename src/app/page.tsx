@@ -22,7 +22,7 @@ export default function HomePage() {
             {/* Hero Section */}
             <section className="relative bg-gradient-to-r from-blue-600 text-white">
                 <div className="max-w-7x1 mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                    <div className="max-w-2x1">
+                    <div className="max-w-2xl">
                         <h1 className="text-4x1 md:text-5x1 font-bold mb-4">
                             Bienvenido a NovaCart
                         </h1>
@@ -108,7 +108,7 @@ export default function HomePage() {
                                         {product.name}
                                     </h3>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-2x1 font-bold text-blue-600">
+                                        <span className="text-2xl font-bold text-blue-600">
                                             ${product.price.toFixed(2)}
                                         </span>
                                         <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm">
