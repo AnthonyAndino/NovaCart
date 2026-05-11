@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { CartProvider } from '@/context/CartContext'
 
 export const metadata: Metadata = {
     title: 'NovaCart - Tu tienda online',
@@ -16,9 +17,11 @@ export default function RootLayout({
     return (
         <html lang="es">
             <body className="min-h-screen flex flex-col">
-                <Navbar />
-                <main className="flex-grow">{children}</main>
-                <Footer />
+                <CartProvider>
+                    <Navbar />
+                    <main className="flex-grow">{children}</main>
+                    <Footer />
+                </CartProvider>
             </body>
         </html>
     )
