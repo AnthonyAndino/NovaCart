@@ -8,12 +8,12 @@ const categories = [
 ]
 
 const featuredProducts = [
-  { id: '1', name: 'Laptop Pro 15"', price: 1299.99, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', category: 'Electrónica' },
-  { id: '2', name: 'Auriculares Wireless', price: 199.99, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop', category: 'Electrónica' },
-  { id: '3', name: 'Zapatillas Running', price: 89.99, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop', category: 'Deportes' },
-  { id: '4', name: 'Campera Invernal', price: 149.99, image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=300&fit=crop', category: 'Ropa' },
-  { id: '5', name: 'Reloj Smart', price: 299.99, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop', category: 'Electrónica' },
-  { id: '6', name: 'Mochila Viajera', price: 79.99, image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop', category: 'Hogar' },
+  { id: 'prod_1', name: 'Laptop Pro 15"', price: 1299.99, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', category: 'Electrónica' },
+  { id: 'prod_2', name: 'Auriculares Wireless', price: 199.99, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop', category: 'Electrónica' },
+  { id: 'prod_3', name: 'Zapatillas Running', price: 89.99, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop', category: 'Deportes' },
+  { id: 'prod_4', name: 'Campera Invernal', price: 149.99, image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=300&fit=crop', category: 'Ropa' },
+  { id: 'prod_5', name: 'Reloj Smart', price: 299.99, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop', category: 'Electrónica' },
+  { id: 'prod_6', name: 'Mochila Viajera', price: 79.99, image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop', category: 'Hogar' },
 ]
 
 export default function HomePage() {
@@ -36,7 +36,7 @@ export default function HomePage() {
                             >
                             Ver Productos
                             </Link>
-                            <Link
+                            <Link 
                             href="/register"
                             className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
                             >
@@ -89,7 +89,8 @@ export default function HomePage() {
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                         {featuredProducts.map((product) => (
-                            <div
+                            <Link
+                            href={`/product/${product.id}`}
                             key={product.id}
                             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition"
                             >
@@ -116,7 +117,7 @@ export default function HomePage() {
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                     <div className="text-center mt-12">
