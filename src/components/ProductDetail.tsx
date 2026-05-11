@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useCart } from '@/context/CartContext'
 
 interface Product {
     id: string
@@ -18,6 +19,7 @@ export default function ProductDetail({ productId }: { productId: string }) {
     const [error, setError] = useState(false)
     const [quantity, setQuantity] = useState(1)
     const [addedToCart, setAddedToCart] = useState(false)
+    const { addToCart } = useCart()
 
     useEffect(() => {
         async function fetchProduct() {
@@ -39,6 +41,14 @@ export default function ProductDetail({ productId }: { productId: string }) {
     }, [productId])
 
     function handleAddToCart() {
+        if (!product) return
+        addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            stock: product.stock,
+        }, quantity)
         setAddedToCart(true)
         setTimeout(() => setAddedToCart(false), 2000)
     }

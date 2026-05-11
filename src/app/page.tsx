@@ -1,19 +1,11 @@
 import Link from 'next/link'
+import FeaturedProducts from '@/components/FeaturedProducts'
 
 const categories = [
   { name: 'Electrónica', image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=300&fit=crop', slug: 'electronica' },
   { name: 'Ropa', image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=300&fit=crop', slug: 'ropa' },
   { name: 'Hogar', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop', slug: 'hogar' },
   { name: 'Deportes', image: 'https://images.unsplash.com/photo-1461896836934-428b4a?w=400&h=300&fit=crop', slug: 'deportes' },
-]
-
-const featuredProducts = [
-  { id: 'prod_1', name: 'Laptop Pro 15"', price: 1299.99, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', category: 'Electrónica' },
-  { id: 'prod_2', name: 'Auriculares Wireless', price: 199.99, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop', category: 'Electrónica' },
-  { id: 'prod_3', name: 'Zapatillas Running', price: 89.99, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop', category: 'Deportes' },
-  { id: 'prod_4', name: 'Campera Invernal', price: 149.99, image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=300&fit=crop', category: 'Ropa' },
-  { id: 'prod_5', name: 'Reloj Smart', price: 299.99, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop', category: 'Electrónica' },
-  { id: 'prod_6', name: 'Mochila Viajera', price: 79.99, image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop', category: 'Hogar' },
 ]
 
 export default function HomePage() {
@@ -87,39 +79,7 @@ export default function HomePage() {
                     <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
                         Productos destacados
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                        {featuredProducts.map((product) => (
-                            <Link
-                            href={`/product/${product.id}`}
-                            key={product.id}
-                            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition"
-                            >
-                                <div className="relative h-48 bg-gray-200">
-                                    <img 
-                                    src={product.image}
-                                    alt={product.name}
-                                    className="w-full h-full object-cover"
-                                    />
-                                    <span className="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
-                                        {product.category}
-                                    </span>
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                        {product.name}
-                                    </h3>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-2xl font-bold text-blue-600">
-                                            ${product.price.toFixed(2)}
-                                        </span>
-                                        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm">
-                                            Agregar
-                                        </button>
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
+                    <FeaturedProducts />
                     <div className="text-center mt-12">
                         <Link
                         href="/"
